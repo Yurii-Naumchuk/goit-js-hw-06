@@ -11,17 +11,30 @@
 // 5 Виведи об'єкт із введеними даними в консоль
 //  і очисти значення полів форми методом reset.
 
+
 const loginForm = document.querySelector (".login-form");
 
-loginForm.addEventListener( 'submit', onFormSubmit);
+loginForm.addEventListener("submit", onFormSubmit);
 
 function onFormSubmit(event) {
- event.preventDefault();
- 
- const formData = new FormData(event.currentTarget);
- console.log(FormData);
- formData.forEach((value, name) =>{
-    console.log('onFormSubmit -> name', name);
-    console.log('onFormSubmit -> value', value);
- });
+  event.preventDefault();
+
+  const formEl = event.currentTarget.elements;
+  const email = formEl.email.value;
+  const password = formEl.password.value;
+
+  if (email === "" || password === "") {
+    alert("Всі поля повинні бути заповнені");
+  }
+  const formData = {
+    email,
+    password,
+  };
+  console.log(formData);
+  event.currentTarget.reset();
 }
+
+
+
+
+
