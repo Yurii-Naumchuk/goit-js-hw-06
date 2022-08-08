@@ -19,20 +19,22 @@ loginForm.addEventListener("submit", onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
-  const formEl = event.currentTarget.elements;
-  const email = formEl.email.value;
-  const password = formEl.password.value;
+  const email = event.currentTarget.elements.email.value;
+  const password = event.currentTarget.elements.password.value;
 
   if (email === "" || password === "") {
-    alert("Всі поля повинні бути заповнені");
+    return alert("Всі поля повинні бути заповнені");
   }
-  const formData = {
-    email,
-    password,
-  };
-  console.log(formData);
-  event.currentTarget.reset();
-}
+  else {
+    const formData = {
+      email,
+      password,
+    };
+    console.log(formData);
+  }
+
+  return loginForm.reset();
+};
 
 
 

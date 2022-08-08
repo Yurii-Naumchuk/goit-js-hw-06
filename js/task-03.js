@@ -17,8 +17,8 @@ const images = [
 // зображень на підставі масиву даних. HTML містить список ul.gallery.
 const gallery = document.querySelector(".gallery");
 const createImg = images.map(
-  (image) => `<li><img src ="${image.url}"alt="${image.alt}" </img></li>`
-);
+  (image) => `<li><img src ="${image.url}"alt="${image.alt}"></li>`
+).join(" ");
 gallery.insertAdjacentHTML("beforeend", createImg);
 
 
@@ -28,7 +28,3 @@ gallery.insertAdjacentHTML("beforeend", createImg);
 //   return `<li><img alt='${alt}'; src='${url}';></li>`;
 // }).join(" ");
 // gallery.insertAdjacentHTML("beforeend", createImg);
-
-
-
-
